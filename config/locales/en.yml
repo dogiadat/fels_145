@@ -14,3 +14,9 @@ en:
         footer: "this is footer"
         linkhome: "home"
         linklogin: "login"
+    users:
+      new: "Sign up"
+      create:
+        success: "Sign up successfully"
+    shared:
+      contain_error: "the form contains "
