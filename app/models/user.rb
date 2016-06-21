@@ -7,4 +7,18 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons
+
+  before_save :downcase_email
+  validates :name, presence: true, length: {maximum: 50}
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: {maximum: 255},
+    format: {with: VALID_EMAIL_REGEX}
+
+  has_secure_password
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+
+  private
+  def downcase_email
+    self.email = email.downcase
+  end
 end
