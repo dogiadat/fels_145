@@ -1,0 +1,16 @@
+<center>
+  <h1><%= t "views.categories.new" %></h1>
+  <br/>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for @category do |f| %>
+        <%= render "shared/error_messages", object: @category %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br/>
+        <%= f.submit t("controllers.categories.add_category"),
+          class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</center>
