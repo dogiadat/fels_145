@@ -1,5 +1,7 @@
-en:
+en: 
   views:
+    categories:
+      new: "Create category"
     static_pages:
       contact: "This is contact"
       help: "This is help"
@@ -20,3 +22,7 @@ en:
         success: "Sign up successfully"
     shared:
       contain_error: "the form contains "
+  controllers:
+    categories:
+      create_success: "Create success"
+      add_category: "Add Category"
