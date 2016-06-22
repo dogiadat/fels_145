@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :edit, :update]
+  before_action :logged_in_user, except: [:show, :index]
+  before_action :load_category, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:destroy]
 
   def index
     @categories = Category.paginate page: params[:page], per_page: Settings.per_page
@@ -12,24 +14,32 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new category_params
     if @category.save
-      flash[:success] = I18n.t "controllers.categories.create_success"
-      redirect_to root_url
+      flash[:success] = t "controllers.categories.create_success"
+      redirect_to categories_url
     else
       render :new
     end
-   end
+  end
 
   def edit
-    @category = Category.find params[:id]
   end
 
   def update
-    @category = Category.find params[:id]
     if @category.update_attributes category_params
       flash[:success] = t "controllers.categories.updated"
-      redirect_to root_url
+      redirect_to categories_url
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "views.categories.delete_category"
+      redirect_to categories_url
+    else
+      flash[:danger] = t "controllers.categories.erro2"
+      redirect_to categories_url
     end
   end
 
@@ -37,4 +47,8 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit :name
   end
+  def load_category
+    @category = Category.find_by params[:id]
+  end
+
 end

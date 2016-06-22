@@ -2,6 +2,12 @@ en:
   views:
     categories:
       new: "Create category"
+      create_lesson: "Start"
+      edit: "Edit"
+      delete: "Delete"
+      delete_category: "Deleted success !"
+      new_cate: "New Category"
+      erro2: "can not delete!"
     static_pages:
       contact: "This is contact"
       help: "This is help"
@@ -11,6 +17,8 @@ en:
         team: "145 team"
         ten1: "Hoang Thi Lanh"
         ten2: "Do Gia Dat"
+      word_list: "Word List"
+      start_lesson: "Start Lesson"
     layouts:
       users: "Users"
       logout: "Log out"
@@ -40,6 +48,5 @@ en:
       list_category: "List categories"
       updated: "updated success!"
       erro1: "Please login"
-    session:
         success: "Logged in successfully"
         error: "Invalid email/password combination"

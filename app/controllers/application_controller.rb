@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+  private
   def logged_in_user
     unless logged_in?
       flash[:danger] = t "controllers.categories.erro1"
@@ -19,4 +20,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url unless current_user.is_admin?
   end
 
+  def admin_user
+    flash[:danger] = t "controllers.categories.erro1"
+    redirect_to root_url unless current_user.is_admin?
+  end
 end

@@ -1,13 +1,26 @@
 <%= provide :title, t("controllers.categories.list_category") %>
 <h1><%= t "controllers.categories.list_category" %></h1>
+<% if current_user.is_admin? %>
+  <div class="panel">
+    <%= link_to t("views.categories.new_cate"), new_category_path,
+      class: "btn btn-primary" %>
+  </div>
+<% end %>
+<br>
 <%= will_paginate %>
 <ul class="categories">
   <% @categories.each do |category| %>
     <li>
       <h3><%= category.name %><h3>
       <center>
-        <%= link_to t("controllers.categories.add_lesson"), "#",
-          class: "btn btn-lg btn-primary" %>
+        <%= link_to t("views.categories.add_lesson"), "#",
+          class: "btn btn-success" %>
+        <% if current_user.is_admin? %>
+          <%= link_to t("views.categories.edit"), edit_category_path(category),
+            class: "btn btn-primary" %>
+          <%= link_to t("views.categories.delete"), category, method: :delete,
+            data: {confirm: "You sure?"}, class: "btn btn-danger" %>
+         <% end %>
       </center>
     </li>
   <% end %>
