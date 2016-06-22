@@ -1,0 +1,15 @@
+<%= provide :title, t("controllers.categories.list_category") %>
+<h1><%= t "controllers.categories.list_category" %></h1>
+<%= will_paginate %>
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li>
+      <h3><%= category.name %><h3>
+      <center>
+        <%= link_to t("controllers.categories.add_lesson"), "#",
+          class: "btn btn-lg btn-primary" %>
+      </center>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>
