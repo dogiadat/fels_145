@@ -1,4 +1,4 @@
-en: 
+en:
   views:
     categories:
       new: "Create category"
@@ -22,6 +22,8 @@ en:
       new: "Sign up"
       create:
         success: "Sign up successfully"
+      index:
+        all_users: "All Users"
     shared:
       contain_error: "The form contains "
     sessions:
