@@ -32,8 +32,11 @@ en:
     categories:
       create_success: "Create success"
       add_category: "Add Category"
+      edit_category: "Edit Category"
       add_lesson: "Create lesson"
       list_category: "List categories"
+      updated: "updated success!"
+      erro1: "Please login"
     session:
         success: "Logged in successfully"
         error: "Invalid email/password combination"
