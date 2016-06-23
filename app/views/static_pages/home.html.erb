@@ -1,16 +1,37 @@
-<div class="panel panel-heading">
-  <center>
-    <h1><%= t "views.static_pages.home1" %></h1>
-  </center>
-</div>
-<div class="panel-body">
-  <center>
-    <h3><%= t "views.static_pages.home.team" %></h3>
-    <p><%= t "views.static_pages.home.ten1" %></p>
-    <p><%= t "views.static_pages.home.ten2" %></p>
-    <br/>
-    <br/>
-    <%= link_to t("views.static_pages.signup"), signup_path,
-      class: "btn btn-lg btn-primary" %>
-  </center>
-</div>
+<% if logged_in? %>
+  <div class="panel panel-heading">
+    <center>
+      <h1><%= t "views.static_pages.home1" %></h1>
+    </center>
+  </div>
+  <div class="panel-body">
+    <center>
+      <h3><%= t "views.static_pages.home.team" %></h3>
+      <p><%= t "views.static_pages.home.ten1" %></p>
+      <p><%= t "views.static_pages.home.ten2" %></p>
+      <br/>
+      <br/>
+      <%= link_to t("views.static_pages.word_list"), "#",
+        class: "btn btn-lg btn-primary" %>
+      <%= link_to t("views.static_pages.start_lesson"), categories_path,
+        class: "btn btn-lg btn-success" %>
+    </center>
+  </div>
+<% else %>
+  <div class="panel panel-heading">
+    <center>
+      <h1><%= t "views.static_pages.home1" %></h1>
+    </center>
+  </div>
+  <div class="panel-body">
+    <center>
+      <h3><%= t "views.static_pages.home.team" %></h3>
+      <p><%= t "views.static_pages.home.ten1" %></p>
+      <p><%= t "views.static_pages.home.ten2" %></p>
+      <br/>
+      <br/>
+      <%= link_to t("views.static_pages.signup"), signup_path,
+        class: "btn btn-lg btn-primary" %>
+    </center>
+  </div>
+<% end %>
