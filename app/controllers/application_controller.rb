@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+  end
+
+  def user_admin
+    redirect_to root_url unless current_user.is_admin?
+  end
+
 end
