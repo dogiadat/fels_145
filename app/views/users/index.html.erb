@@ -6,6 +6,11 @@
   <% @users.each do |user| %>
     <li>
       <%= user.name %>
+      <% if logged_in? && current_user.is_admin? && !user.is_admin? %>
+        <%= button_to "Delete", user, method: :delete,
+          class: "btn btn-danger btn-delete pull-right",
+          data: {confirm: "You want to delete this user?"} %>
+      <% end %>
     </li>
     <br>
   <% end %>

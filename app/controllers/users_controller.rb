@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:destroy]
+  before_action :load_user, only: [:show, :destroy]
+  before_action :user_admin, only: [:destroy]
 
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page
@@ -19,7 +22,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to users_url
   end
 
   private
