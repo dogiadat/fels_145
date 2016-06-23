@@ -18,6 +18,7 @@ en:
         footer: "this is footer"
         linkhome: "Home"
         linklogin: "login"
+      user_profile: "Profile"
     users:
       new: "Sign up"
       create:
