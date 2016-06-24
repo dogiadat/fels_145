@@ -1,10 +1,14 @@
 class CategoriesController < ApplicationController
   before_action :logged_in_user, except: [:show, :index]
-  before_action :load_category, only: [:edit, :update, :destroy]
+  before_action :load_category, exept: [:new, :create, :index]
   before_action :admin_user, only: [:destroy]
 
   def index
-    @categories = Category.paginate page: params[:page], per_page: Settings.per_page
+    @categories = Category.order(:name).paginate page: params[:page],
+      per_page: Settings.per_page
+  end
+
+  def show
   end
 
   def new
@@ -47,8 +51,8 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit :name
   end
-  def load_category
-    @category = Category.find_by params[:id]
-  end
 
+  def load_category
+    @category = Category.find_by id: params[:id]
+  end
 end
