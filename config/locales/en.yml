@@ -1,5 +1,9 @@
 en:
   views:
+    words:
+      new:
+        add_word_title: "Add Word For Category"
+        add_word: "Add Word"
     categories:
       new: "Create category"
       create_lesson: "Start"
@@ -8,6 +12,7 @@ en:
       delete_category: "Deleted success !"
       new_cate: "New Category"
       erro2: "can not delete!"
+      add_word: "Add word"
     static_pages:
       contact: "This is contact"
       help: "This is help"
@@ -29,6 +34,7 @@ en:
         linkhome: "Home"
         linklogin: "login"
       user_profile: "Profile"
+      categories: "Categories"
     users:
       new: "Sign up"
       create:
@@ -66,3 +72,9 @@ en:
       wrong_password: "Wrong password"
     application:
       please_login: "Please log in."
+    words:
+      create:
+        fail: "Create Failed"
+  words:
+    create:
+      success: "Created successfully"
