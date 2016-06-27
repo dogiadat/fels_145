@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   resources :categories do
     resources :words, except: [:index, :destroy]
   end
+  resources :categories, except: [:show]
+  resources :users do
+    get "/:relationship", on: :member,
+      to: "relationships#index", as: :relationships
+  end
+  resources :lesson, only: [:index, :create]
+  resources :relationships, only: [:create, :destroy, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

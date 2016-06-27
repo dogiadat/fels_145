@@ -1,10 +1,21 @@
 en:
+  follow_user:
+    following: "Following"
+    followers: "Followers"
   views:
     words:
       new:
         add_word_title: "Add Word For Category"
         add_word: "Add Word"
         edit_word: "Edit Word"
+    lesson:
+      save: "Save !"
+      lesson_name: "Lesson"
+    follow: "Follow"
+    unfollow: "Unfollow"
+    following: "Following"
+    unfollowing: "Followers"
+    view_my_profile: "view my profile"
     categories:
       new: "Create category"
       create_lesson: "Start"
