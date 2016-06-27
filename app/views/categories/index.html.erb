@@ -8,10 +8,14 @@
       <div class="pull-left" style="font-size:20px;">
         <%= link_to category.name, admin_category_path(category) %>
       </div>
-      <div class="center">
-        <%= link_to t("views.categories.start_lesson"), "#",
-          class: "btn btn-primary" %>
-      </div>
+      <% if logged_in? %>
+        <div class="center">
+          <%= form_tag lessons_path, method: :post do %>
+            <%= hidden_field_tag "lesson[category_id]", category.id  %>
+            <%= submit_tag t("views.lesson.start_lesson"), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>

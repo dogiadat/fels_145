@@ -26,8 +26,11 @@ en:
         add_word: "Add Word"
         edit_word: "Edit Word"
     lesson:
+      start_lesson: "Start lesson"
       save: "Save !"
       lesson_name: "Lesson"
+      success: "Success"
+      fails: "Create Failed"
     follow: "Follow"
     unfollow: "Unfollow"
     following: "Following"
@@ -122,3 +125,14 @@ en:
       destroy:
         success: "Deleted successfully"
         failed: "Deleted failed, word already exists in lesson"
+  words:
+    create:
+      success: "Created successfully"
+    update:
+      success: "Updated successfully"
+      failed: "Update Failed"
+    destroy:
+      success: "Deleted successfully"
+      failed: "Deleted failed, word already exists in lesson"
+  form:
+    invalid: "Invalid"
