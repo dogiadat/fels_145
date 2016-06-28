@@ -4,6 +4,7 @@ en:
       new:
         add_word_title: "Add Word For Category"
         add_word: "Add Word"
+        edit_word: "Edit Word"
     categories:
       new: "Create category"
       create_lesson: "Start"
@@ -78,3 +79,6 @@ en:
   words:
     create:
       success: "Created successfully"
+    update:
+      success: "Updated successfully"
+      failed: "Update Failed"

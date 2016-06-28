@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
   before_action :logged_in_user, :load_category, :user_admin,
-    only: [:new, :create]
+    except: [:index, :destroy]
+  before_action :load_word, only: [:edit, :update]
 
   def new
     @word = @category.words.new
@@ -18,6 +19,19 @@ class WordsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @word.update_attributes word_params
+      flash[:success] = t ".success"
+      redirect_to @category
+    else
+      flash[:danger] = t ".failed"
+      render :edit
+    end
+  end
+
   private
   def load_category
     @category = Category.find_by id: params[:category_id]
@@ -26,5 +40,9 @@ class WordsController < ApplicationController
   def word_params
     params.require(:word).permit :content,
       word_answers_attributes: [:content, :is_correct, :_destroy]
+  end
+
+  def load_word
+    @word = Word.find_by id: params[:id]
   end
 end
