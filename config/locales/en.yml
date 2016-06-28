@@ -13,6 +13,8 @@ en:
       new_cate: "New Category"
       erro2: "can not delete!"
       add_word: "Add word"
+      show:
+        confirm_delete: "You want to delete this word?"
     static_pages:
       contact: "This is contact"
       help: "This is help"

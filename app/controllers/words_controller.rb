@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
-  before_action :logged_in_user, :load_category, :user_admin,
-    only: [:new, :create]
+  before_action :logged_in_user, :user_admin
+  before_action :load_category, only: [:new, :create, :destroy]
 
   def new
     @word = @category.words.new
@@ -16,6 +16,11 @@ class WordsController < ApplicationController
       flash[:danger] = t "controllers.words.create.fail"
       render :new
     end
+  end
+
+  def destroy
+    Word.find_by(id: params[:id]).destroy
+    redirect_to @category
   end
 
   private

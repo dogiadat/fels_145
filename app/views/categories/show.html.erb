@@ -1,5 +1,5 @@
 <h1><%= @category.name %></h1>
-  <% if current_user.is_admin? %>
+<% if current_user.is_admin? %>
   <div class="panel panel-heading">
     <%= link_to t(".add_word"), new_category_word_path(@category),
       class: "btn btn-primary" %>
@@ -10,12 +10,15 @@
     <thead>
       <tr>
         <th><%= t ".words" %></th>
+        <th><%= t ".actions" %></th>
       </tr>
     </thead>
     <tbody>
       <% @category.words.each do |word| %>
         <tr>
           <td><%= word.content %></td>
+          <td><%= link_to t(".delete"), [@category, word], method: :delete,
+            data: {confirm: t("views.categories.show.confirm_delete")} %></td>
         </tr>
       <% end %>
     </tbody>
