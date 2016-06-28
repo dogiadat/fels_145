@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
+  def is_user? user
+    self == user
+  end
+
   private
   def downcase_email
     self.email = email.downcase

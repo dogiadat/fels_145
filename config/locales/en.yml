@@ -22,6 +22,8 @@ en:
     layouts:
       users: "Users"
       logout: "Log out"
+      user_edit: "Edit profile"
+      user_edit_pass: "Change Password"
       application:
         footer: "this is footer"
         linkhome: "Home"
@@ -33,6 +35,11 @@ en:
         success: "Sign up successfully"
       index:
         all_users: "All Users"
+      current_password: "Current password"
+      new_password: "New password"
+      password_confirmation: "Password again"
+      save: "Save changes"
+      title_edit_password: "Change your password"
     shared:
       contain_error: "The form contains "
     sessions:
@@ -48,5 +55,14 @@ en:
       list_category: "List categories"
       updated: "updated success!"
       erro1: "Please login"
-        success: "Logged in successfully"
-        error: "Invalid email/password combination"
+      success: "Logged in successfully"
+      error: "Invalid email/password combination"
+    session:
+      success: "Logged in successfully"
+      error: "Invalid email/password combination"
+    users:
+      edit_success: "Edit successfully"
+      edit_error: "Edit failed"
+      wrong_password: "Wrong password"
+    application:
+      please_login: "Please log in."
