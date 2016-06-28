@@ -1,0 +1,23 @@
+<h1><%= @category.name %></h1>
+<% if current_user.is_admin? %>
+  <div class="panel panel-heading">
+    <%= link_to t(".add_word"), new_category_word_path(@category),
+      class: "btn btn-primary" %>
+  </div>
+<% end %>
+<div class="panel panel-body">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".words" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.words.each do |word| %>
+        <tr>
+          <td><%= word.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
