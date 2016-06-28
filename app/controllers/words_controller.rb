@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
   before_action :logged_in_user, :load_category, :user_admin,
-    except: [:index, :destroy]
-  before_action :load_word, only: [:edit, :update]
+    except: [:index]
+  before_action :load_word, only: [:edit, :update, :destroy]
 
   def new
     @word = @category.words.new
@@ -30,6 +30,16 @@ class WordsController < ApplicationController
       flash[:danger] = t ".failed"
       render :edit
     end
+  end
+
+  def destroy
+    if @word.lesson_words.any?
+      flash[:danger] = t ".failed"
+    else
+      @word.destroy
+      flash[:success] = t ".success"
+    end
+    redirect_to @category
   end
 
   private

@@ -25,6 +25,8 @@ en:
       new_cate: "New Category"
       erro2: "can not delete!"
       add_word: "Add word"
+      show:
+        confirm_delete: "Are you sure delete this word?"
     static_pages:
       contact: "This is contact"
       help: "This is help"
@@ -93,3 +95,6 @@ en:
     update:
       success: "Updated successfully"
       failed: "Update Failed"
+    destroy:
+      success: "Deleted successfully"
+      failed: "Deleted failed, word already exists in lesson"

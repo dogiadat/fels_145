@@ -13,17 +13,19 @@
     <li>
       <h3><%= link_to category.name, category %><h3>
       <center>
-        <% if logged_in? && current_user.is_admin? %>
-          <%= link_to t("views.categories.add_word"), new_category_word_path(category),
+        <% if logged_in? %>
+          <% if current_user.is_admin? %>
+            <%= link_to t("views.categories.add_word"), new_category_word_path(category),
+              class: "btn btn-success" %>
+            <%= link_to t("views.categories.edit"), edit_category_path(category),
+              class: "btn btn-primary" %>
+            <%= link_to t("views.categories.delete"), category, method: :delete,
+              data: {confirm: "You sure?"}, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to t("views.categories.start_lesson"), "#",
             class: "btn btn-success" %>
-        <%= link_to t("views.categories.start_lesson"), "#",
-          class: "btn btn-success" %>
-        <% if current_user.is_admin? %>
-          <%= link_to t("views.categories.edit"), edit_category_path(category),
-            class: "btn btn-primary" %>
-          <%= link_to t("views.categories.delete"), category, method: :delete,
-            data: {confirm: "You sure?"}, class: "btn btn-danger" %>
-         <% end %>
+          <% end %>
+        <% end %>
       </center>
     </li>
   <% end %>
