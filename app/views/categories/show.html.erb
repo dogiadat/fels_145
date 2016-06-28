@@ -10,12 +10,14 @@
     <thead>
       <tr>
         <th><%= t ".words" %></th>
+        <th><%= t ".actions" %></th>
       </tr>
     </thead>
     <tbody>
       <% @category.words.each do |word| %>
         <tr>
           <td><%= word.content %></td>
+          <td><%= link_to t(".edit"), edit_category_word_path(@category, word) %></td>
         </tr>
       <% end %>
     </tbody>
