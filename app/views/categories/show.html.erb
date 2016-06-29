@@ -17,7 +17,11 @@
       <% @category.words.each do |word| %>
         <tr>
           <td><%= word.content %></td>
-          <td><%= link_to t(".edit"), edit_category_word_path(@category, word) %></td>
+          <td>
+            <%= link_to t(".edit"), edit_category_word_path(@category, word) %>
+            <%= link_to t(".delete"), [@category, word], method: :delete,
+              data: {confirm: t("views.categories.show.confirm_delete")} %>
+          </td>
         </tr>
       <% end %>
     </tbody>
