@@ -1,4 +1,4 @@
-<%= form_for [@category, @word] do |f| %>
+<%= form_for [:admin, @category, @word] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <%= f.hidden_field :category_id, value: @category.id %>
   <%= f.label :content %>
@@ -7,15 +7,11 @@
   </br>
   <%= f.label :word_answers, t(".answers") %>
   <%= f.fields_for :word_answers do |builder| %>
-    <fieldset>
-      <%= builder.text_field :content %>
-      <%= builder.check_box :is_correct %>
-      <%= builder.hidden_field :_destroy %>
-    </fieldset>
+    <%= render "word_answer_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields t(".add_answers"), f, :word_answers %>
   </br>
   </br>
-  <%= f.submit t("views.words.new.add_word"),
+  <%= f.submit t("views.words.new.edit_word"),
     class: "btn btn-primary" %>
 <% end %>

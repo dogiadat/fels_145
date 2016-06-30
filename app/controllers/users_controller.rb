@@ -1,25 +1,11 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :load_user, except: [:index, :new, :create]
-  before_action :user_admin, only: [:destroy]
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :load_user, only: [:edit, :update, :show]
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.paginate page: params[:page], per_page: Settings.per_page
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      flash[:success] = t "views.users.create.success"
-      redirect_to root_url
-    else
-      render :new
-    end
+    @users = User,order(:name).paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def show
@@ -36,11 +22,6 @@ class UsersController < ApplicationController
       flash[:danger] = t "controllers.users.edit_error"
       render :edit
     end
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_url
   end
 
   private

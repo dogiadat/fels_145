@@ -1,4 +1,9 @@
 en:
+  layouts:
+    application:
+      framgia_e_learning: "Framgia E-Leaning"
+    admin:
+      framgia_e_learning: "Admin|Framgia E-Leaning"
   follow_user:
     following: "Following"
     followers: "Followers"
@@ -8,6 +13,13 @@ en:
       learned: "Learned"
       not_learned: "Not Learned"
       all_word: "All Word"
+    admin:
+      categories: "Categories"
+      users: "Users"
+      words: "Words"
+      users:
+        index:
+          confirm_delete: "You want to delete this user?"
     words:
       new:
         add_word_title: "Add Word For Category"
@@ -22,6 +34,7 @@ en:
     unfollowing: "Followers"
     view_my_profile: "view my profile"
     categories:
+      start_lesson: "Start lesson"
       new: "Create category"
       create_lesson: "Start"
       edit: "Edit"
@@ -33,6 +46,7 @@ en:
       show:
         confirm_delete: "Are you sure delete this word?"
     static_pages:
+      admin_logo: "Admin"
       contact: "This is contact"
       help: "This is help"
       home1: "Framgia E-Leaning System"
@@ -94,12 +108,17 @@ en:
     words:
       create:
         fail: "Create Failed"
-  words:
-    create:
-      success: "Created successfully"
-    update:
-      success: "Updated successfully"
-      failed: "Update Failed"
-    destroy:
-      success: "Deleted successfully"
-      failed: "Deleted failed, word already exists in lesson"
+  admin:
+    users:
+      destroy:
+        success: "Deleted successfully"
+    error: "Something wrong!!!"
+    words:
+      create:
+        success: "Created successfully"
+      update:
+        success: "Updated successfully"
+        failed: "Update Failed"
+      destroy:
+        success: "Deleted successfully"
+        failed: "Deleted failed, word already exists in lesson"

@@ -1,32 +1,17 @@
 <%= provide :title, t("controllers.categories.list_category") %>
 <h1><%= t "controllers.categories.list_category" %></h1>
-<% if current_user.is_admin? %>
-  <div class="panel">
-    <%= link_to t("views.categories.new_cate"), new_category_path,
-      class: "btn btn-primary" %>
-  </div>
-<% end %>
 <br>
 <%= will_paginate %>
-<ul class="categories">
+<ul class="list-group">
   <% @categories.each do |category| %>
-    <li>
-      <h3><%= link_to category.name, category %><h3>
-      <center>
-        <% if logged_in? %>
-          <% if current_user.is_admin? %>
-            <%= link_to t("views.categories.add_word"), new_category_word_path(category),
-              class: "btn btn-success" %>
-            <%= link_to t("views.categories.edit"), edit_category_path(category),
-              class: "btn btn-primary" %>
-            <%= link_to t("views.categories.delete"), category, method: :delete,
-              data: {confirm: "You sure?"}, class: "btn btn-danger" %>
-          <% else %>
-            <%= link_to t("views.categories.start_lesson"), "#",
-            class: "btn btn-success" %>
-          <% end %>
-        <% end %>
-      </center>
+    <li class="list-group-item">
+      <div class="pull-left" style="font-size:20px;">
+        <%= link_to category.name, admin_category_path(category) %>
+      </div>
+      <div class="center">
+        <%= link_to t("views.categories.start_lesson"), "#",
+          class: "btn btn-primary" %>
+      </div>
     </li>
   <% end %>
 </ul>

@@ -17,13 +17,11 @@ class ApplicationController < ActionController::Base
     @user = User.find_by id: params[:id]
   end
 
-  def user_admin
-    redirect_to root_url unless current_user.is_admin?
-  end
-
   def admin_user
-    flash[:danger] = t "controllers.categories.erro1"
-    redirect_to root_url unless current_user.is_admin?
+    unless current_user.is_admin?
+      flash[:danger] = t "admin.error"
+      redirect_to root_url
+    end
   end
 
   def correct_user

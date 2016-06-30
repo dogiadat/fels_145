@@ -1,18 +1,16 @@
 <% provide :title, t("views.layouts.users") %>
 
 <h1><%= t "views.users.index.all_users" %></h1>
-<%= will_paginate %>
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %>
-      <% if logged_in? && current_user.is_admin? && !user.is_admin? %>
-        <%= button_to "Delete", user, method: :delete,
-          class: "btn btn-danger btn-delete pull-right",
-          data: {confirm: "You want to delete this user?"} %>
-      <% end %>
-    </li>
-    <br>
-  <% end %>
-</ul>
-<%= will_paginate %>
+<div  class="col-md-6 col-md-offset-3">
+  <ul class="list-group">
+    <% @users.each do |user| %>
+      <li class="list-group-item">
+        <%= gravatar_for user %>
+        <%= link_to user.name, user %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+  <%= will_paginate %>
+</div>
+<div class="clearfix"></div>
