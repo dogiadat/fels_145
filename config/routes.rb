@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :words, except: [:index]
   end
+  resources :words, only: [:index]
   resources :categories, except: [:show]
   resources :users do
     get "/:relationship", on: :member,

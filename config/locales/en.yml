@@ -3,6 +3,11 @@ en:
     following: "Following"
     followers: "Followers"
   views:
+    word_lists:
+      search: Search
+      learned: "Learned"
+      not_learned: "Not Learned"
+      all_word: "All Word"
     words:
       new:
         add_word_title: "Add Word For Category"

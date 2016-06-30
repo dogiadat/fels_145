@@ -1,7 +1,15 @@
 class WordsController < ApplicationController
-  before_action :logged_in_user, :load_category, :user_admin,
-    except: [:index]
+  before_action :logged_in_user
+  before_action :load_category, :user_admin, except: [:index]
   before_action :load_word, only: [:edit, :update, :destroy]
+
+  def index
+    @categories = Category.all
+    word_type = params[:word_type] || Settings.all_word
+    @words = Word.send(word_type, current_user)
+     .by_category(params[:by_category])
+     .paginate page: params[:page], per_page: Settings.per_page
+  end
 
   def new
     @word = @category.words.new
