@@ -4,3 +4,6 @@ word_list:
   - "not_learned"
   - "all_word"
 all_word: "all_word"
+activity_type:
+  follow: "follow"
+  unfollow: "unfollow"

@@ -24,13 +24,17 @@ class User < ActiveRecord::Base
   def unfollow other_user
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
-  
+
   def following? other_user
     following.include? other_user
   end
 
   def is_user? user
     self == user
+  end
+
+  def create_activity target_id, activity_type
+    self.activities.create target_id: target_id, activity_type: activity_type
   end
 
   private

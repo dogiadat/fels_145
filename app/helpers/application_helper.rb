@@ -9,4 +9,9 @@ module ApplicationHelper
     link_to(name, "#", class: "add_fields",
       data: {id: id, word_answers: fields.gsub("\n", "")})
   end
+
+  def create_activity user_id, target_id, activity_type
+    current_user.activities.create user_id: user_id, target_id: target_id,
+      activity_type: activity_type
+  end
 end
