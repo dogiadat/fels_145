@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get "/:relationship", on: :member,
       to: "relationships#index", as: :relationships
   end
-  resources :lesson, only: [:index, :create]
+  resources :lessons, only: [:create, :show]
   resources :relationships, only: [:create, :destroy, :index]
   namespace :admin do
     root "users#index"

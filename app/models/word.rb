@@ -11,6 +11,7 @@ class Word < ActiveRecord::Base
   scope :by_category, ->(category_id) do
     where category_id: category_id if category_id.present?
   end
+  scope :random, -> {order "RANDOM()"}
 
   accepts_nested_attributes_for :word_answers, allow_destroy: true,
     reject_if: lambda {|attribute| attribute[:content].blank?}

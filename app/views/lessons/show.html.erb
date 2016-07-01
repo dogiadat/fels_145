@@ -1,0 +1,38 @@
+<% provide :title, t("views.lesson.lesson_name") %>
+<h1>
+  <%= t "views.lesson.lesson_name" %>
+  <%= @lesson.id %>
+</h1>
+<div class="row">
+  <aside class="col-md-4">
+    <section >
+      <h1>
+        <%= @lesson.category.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<div class="row">
+  <section>
+    <% if @lesson.is_completed.present? %>
+    <% else %>
+      <%= form_for @lesson do |f| %>
+        <%= f.hidden_field :is_completed, value: false %>
+        <%= f.fields_for :lesson_words do |builder| %>
+          <div class="col-md-12 lesson_form">
+            <%= builder.object.word.content %>
+            <br/>
+            <% builder.object.word.word_answers.each do |word_answer| %>
+              <br/>
+              <%= word_answer.content %>
+              <%= builder.radio_button :word_answer_id, word_answer.id %>
+              <%= builder.hidden_field :word_id %>
+              <br/><br/>
+            <% end %>
+          </div>
+        <% end %> 
+        <%= link_to t("views.lessons.save"), "#",  class: "btn btn-primary" %>    
+      <% end %>
+    <% end %>
+  </section>
+</div>
