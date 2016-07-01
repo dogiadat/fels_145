@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
       log_in user
       @current_user = user
       flash[:success] = t "controllers.session.success"
-      redirect_to root_url
+      if user.is_admin?
+        redirect_to admin_root_url
+      else
+        redirect_to root_url
+      end
     else
       flash[:danger] = t "controllers.session.error"
       render :new

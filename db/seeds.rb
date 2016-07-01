@@ -15,8 +15,7 @@ User.create(name: "Hoang Thi Lanh",
 User.create(name: "Do Gia Dat",
   email: "dat@dat.dat",
   password: "datdat",
-  password_confirmation: "datdat",
-  is_admin: true
+  password_confirmation: "datdat"
 )
 
 99.times do |n|
