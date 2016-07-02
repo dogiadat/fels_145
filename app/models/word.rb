@@ -18,4 +18,8 @@ class Word < ActiveRecord::Base
 
   validates :content, presence: true, uniqueness: true,
     length: {maximum: 255}
+
+  def answer
+    self.word_answers.where(is_correct: true).first
+  end
 end

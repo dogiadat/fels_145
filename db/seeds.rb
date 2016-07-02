@@ -35,3 +35,21 @@ following = users[2..50]
 followers = users[3..40]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
+
+10.times do
+  Category.create(name: Faker::Book.title)
+end
+
+category = Category.order(:name).first
+20.times do
+  content = Faker::Color.color_name
+  category.words.create(
+    content: content,
+    word_answers_attributes: [
+      {content: content, is_correct: true},
+      {content: Faker::Color.color_name, is_correct: false},
+      {content: Faker::Color.color_name, is_correct: false},
+      {content: Faker::Color.color_name, is_correct: false}
+    ]
+  )
+end

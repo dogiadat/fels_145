@@ -72,10 +72,26 @@ h1 {
 .users.follow {
   padding: 0;
 }
-.col-md-12.lesson_form {
+
+.lesson_form {
   border: 1px solid;
-  margin-bottom :10px
+  margin-bottom :10px;
+  padding: 10px;
 }
+
 .users.follow {
   padding: 0;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
 }
