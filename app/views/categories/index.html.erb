@@ -12,7 +12,10 @@
         <div class="center">
           <%= form_tag lessons_path, method: :post do %>
             <%= hidden_field_tag "lesson[category_id]", category.id  %>
-            <%= submit_tag t("views.lesson.start_lesson"), class: "btn btn-primary" %>
+            <div class="pull-right">
+              <%= submit_tag t("views.lesson.start_lesson"), class: "btn btn-primary" %>
+            </div>
+            <div class="clearfix"></div>
           <% end %>
         </div>
       <% end %>

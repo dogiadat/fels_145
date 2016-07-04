@@ -60,7 +60,7 @@ class Admin::WordsController < Admin::BaseController
 
   def word_params
     params.require(:word).permit :content,
-      word_answers_attributes: [:content, :is_correct, :_destroy]
+      word_answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 
   def load_word
