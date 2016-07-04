@@ -29,7 +29,6 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update_attributes lesson_params
-      @lesson.update_attribute :is_completed, true
       flash[:success] = t ".success"
       redirect_to @lesson
     else
@@ -44,7 +43,7 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit :user_id, :category_id,
+    params.require(:lesson).permit :user_id, :category_id, :is_completed,
       lesson_words_attributes: [:id, :word_id, :word_answer_id, :_destroy]
   end
 end

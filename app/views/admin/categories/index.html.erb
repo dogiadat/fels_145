@@ -1,9 +1,12 @@
 <%= provide :title, t("controllers.categories.list_category") %>
-<h2><%= t "controllers.categories.list_category" %></h2>
-<div class="panel">
+<center>
+  <h1><%= t "controllers.categories.list_category" %></h1>
+</center>
+<div class="pull-right">
   <%= link_to t("views.categories.new_cate"), new_admin_category_path,
     class: "btn btn-primary" %>
 </div>
+<div class="clearfix"></div>
 <br>
 <%= will_paginate %>
 <ul class="list-group">

@@ -51,7 +51,7 @@
       </div>
     <% else %>
       <%= form_for @lesson do |f| %>
-        <%= f.hidden_field :is_completed, value: false %>
+        <%= f.hidden_field :is_completed, value: true %>
         <%= f.fields_for :lesson_words do |builder| %>
           <div class="col-md-12 lesson_form">
             <strong><%= builder.object.word.content %></strong>

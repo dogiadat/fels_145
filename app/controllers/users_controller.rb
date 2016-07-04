@@ -12,6 +12,20 @@ class UsersController < ApplicationController
     @activities = @user.activities.order(created_at: :desc)
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new user_params
+    if @user.save
+      flash[:success] = t "controllers.categories.create_success"
+      redirect_to new_user_url
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
