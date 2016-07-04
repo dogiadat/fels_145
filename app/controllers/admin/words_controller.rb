@@ -3,12 +3,12 @@ class Admin::WordsController < Admin::BaseController
   before_action :load_word, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
     word_type = params[:word_type] || Settings.all_word
     @words = Word.send(word_type, current_user)
-     .by_category(params[:by_category])
-     .order(:content)
-     .paginate page: params[:page], per_page: Settings.per_page
+      .by_category(params[:by_category])
+      .order(:content)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new

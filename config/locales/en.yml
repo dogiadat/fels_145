@@ -8,6 +8,10 @@ en:
     following: "Following"
     followers: "Followers"
   views:
+    lessons:
+      show:
+        wrong_answer: "Wrong!! Answer is "
+        submit: "Are you sure finish this lesson?"
     word_lists:
       search: Search
       learned: "Learned"
@@ -27,7 +31,7 @@ en:
         edit_word: "Edit Word"
     lesson:
       start_lesson: "Start lesson"
-      save: "Save !"
+      save: "Finish !"
       lesson_name: "Lesson"
       success: "Success"
       fails: "Create Failed"
@@ -72,6 +76,8 @@ en:
       user_profile: "Profile"
       categories: "Categories"
     users:
+      show:
+        lesson: "Lesson %{id}"
       new: "Sign up"
       create:
         success: "Sign up successfully"
@@ -136,3 +142,10 @@ en:
       failed: "Deleted failed, word already exists in lesson"
   form:
     invalid: "Invalid"
+  lessons:
+    show:
+      success:
+        finish: "You finished this lesson"
+        doing_lesson: "Doing lesson"
+    create:
+      no_word_error: "Category has no word to start lesson"
