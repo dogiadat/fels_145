@@ -35,7 +35,8 @@
             <% end %>
           </td>
           <td>
-            <%= link_to t(".delete"), [:admin, Category.find(word.category_id), word],
+            <%= link_to t(".edit"), edit_admin_category_word_path(word.category.id, word) %>
+            <%= link_to t(".delete"), [:admin, word.category, word],
               method: :delete,
               data: {confirm: t("views.categories.show.confirm_delete")} %>
           </td>

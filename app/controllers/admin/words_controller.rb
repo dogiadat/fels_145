@@ -33,7 +33,7 @@ class Admin::WordsController < Admin::BaseController
   def update
     if @word.update_attributes word_params
       flash[:success] = t ".success"
-      redirect_to admin_category_url(@category)
+      redirect_to edit_admin_category_word_url(@word.category, @word)
     else
       flash[:danger] = t ".failed"
       render :edit
@@ -60,7 +60,7 @@ class Admin::WordsController < Admin::BaseController
 
   def word_params
     params.require(:word).permit :content,
-      word_answers_attributes: [:content, :is_correct, :_destroy]
+      word_answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 
   def load_word
