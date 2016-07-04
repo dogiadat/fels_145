@@ -3,11 +3,18 @@ class LessonsController < ApplicationController
   before_action :logged_in_user, only: [:create, :update]
 
   def show
-    @words = @lesson.category.words
-    if @lesson.is_completed?
-      flash[:success] = t ".success.finish"
+    if current_user.is_user? @lesson.user
+      @words = @lesson.category.words
+      if @lesson.is_completed?
+        flash[:success] = t ".success.finish"
+      else
+        flash[:success] = t ".success.doing_lesson"
+      end
     else
-      flash[:success] = t ".success.doing_lesson"
+      unless @lesson.is_completed?
+        flash[:warning] = "This lesson do not finish"
+        redirect_to @lesson.user
+      end
     end
   end
 

@@ -1,4 +1,8 @@
 en:
+  errors:
+    same_answers: "not be same"
+    answer_present: "must exist"
+    correct_only: "has only one correct answer"
   layouts:
     application:
       framgia_e_learning: "Framgia E-Leaning"
@@ -13,7 +17,7 @@ en:
         wrong_answer: "Wrong!! Answer is "
         submit: "Are you sure finish this lesson?"
     word_lists:
-      search: Search
+      search: "Filter"
       learned: "Learned"
       not_learned: "Not Learned"
       all_word: "All Word"
@@ -75,6 +79,7 @@ en:
         linklogin: "login"
       user_profile: "Profile"
       categories: "Categories"
+      words: "Words"
     users:
       show:
         lesson: "Lesson %{id}"
@@ -100,7 +105,7 @@ en:
       add_category: "Add Category"
       edit_category: "Edit Category"
       add_lesson: "Create lesson"
-      list_category: "List categories"
+      list_category: "Categories"
       updated: "updated success!"
       erro1: "Please login"
       success: "Logged in successfully"
@@ -119,6 +124,8 @@ en:
         fail: "Create Failed"
   admin:
     users:
+      index:
+        delete: "Delete"
       destroy:
         success: "Deleted successfully"
     error: "Something wrong!!!"

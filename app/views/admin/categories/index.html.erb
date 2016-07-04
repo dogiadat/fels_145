@@ -15,17 +15,16 @@
       <div class="pull-left" style="font-size:20px;">
         <%= link_to category.name, admin_category_path(category) %>
       </div>
-      <center>
-        <div>
-          <%= link_to t("views.categories.add_word"),
-            new_admin_category_word_path(category), class: "btn btn-success" %>
-          <%= link_to t("views.categories.edit"), edit_admin_category_path(category),
-            class: "btn btn-primary" %>
-          <%= link_to t("views.categories.delete"), admin_category_path(category),
-            method: :delete, data: {confirm: t("views.categories.show.confirm_delete")},
-            class: "btn btn-danger" %>
-        </div>
-      </center>
+      <div class="pull-right">
+        <%= link_to t("views.categories.add_word"),
+          new_admin_category_word_path(category), class: "btn btn-success" %>
+        <%= link_to t("views.categories.edit"), edit_admin_category_path(category),
+          class: "btn btn-primary" %>
+        <%= link_to t("views.categories.delete"), admin_category_path(category),
+          method: :delete, data: {confirm: t("views.categories.show.confirm_delete")},
+          class: "btn btn-danger" %>
+      </div>
+      <div class="clearfix"></div>
     </li>
   <% end %>
 </ul>

@@ -33,9 +33,8 @@ class Admin::WordsController < Admin::BaseController
   def update
     if @word.update_attributes word_params
       flash[:success] = t ".success"
-      redirect_to admin_category_url(@category)
+      redirect_to edit_admin_category_word_url(@word.category, @word)
     else
-      flash[:danger] = t ".failed"
       render :edit
     end
   end

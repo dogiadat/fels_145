@@ -18,8 +18,21 @@ class Word < ActiveRecord::Base
 
   validates :content, presence: true, uniqueness: true,
     length: {maximum: 255}
+  validate :check_answers
 
   def answer
     self.word_answers.where(is_correct: true).first
+  end
+
+  private
+  def check_answers
+    answers = self.word_answers.reject {|word_answer| word_answer.marked_for_destruction?}
+    if answers.blank?
+      self.errors.add :word_answers, I18n.t(".errors.answer_present")
+    elsif answers.combination(2).any? {|a1, a2| a1.content == a2.content}
+      self.errors.add :word_answers, I18n.t(".errors.same_answers")
+    elsif answers.count {|answer| answer.is_correct?} != 1
+      self.errors.add :word_answers, I18n.t(".errors.correct_only")
+    end
   end
 end

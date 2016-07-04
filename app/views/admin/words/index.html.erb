@@ -1,5 +1,5 @@
 <div class="panel panel-heading">
-  <h1><%= t ".word_list" %></h1>
+  <h1><%= t ".words" %></h1>
 </div>
 <div class="panel">
   <div class="form-inline center">
@@ -7,11 +7,6 @@
       <%= select_tag :by_category,
         options_from_collection_for_select(@categories, :id, :name, params[:by_category]),
           include_blank: t(".all"), class: "form-control" %>
-      <% Settings.word_list.each do |option| %>
-        <%= radio_button_tag :word_type, option,
-          params[:word_type] == option %>
-        <%= t ".#{option}" %>
-      <% end %>
       <%= submit_tag t("views.word_lists.search"), class: "btn btn-success" %>
     <% end %>
   </div>
@@ -35,7 +30,8 @@
             <% end %>
           </td>
           <td>
-            <%= link_to t(".delete"), [:admin, Category.find(word.category_id), word],
+            <%= link_to t(".edit"), edit_admin_category_word_path(word.category.id, word) %>
+            <%= link_to t(".delete"), [:admin, word.category, word],
               method: :delete,
               data: {confirm: t("views.categories.show.confirm_delete")} %>
           </td>

@@ -11,9 +11,11 @@
         <%= gravatar_for user %>
         <%= link_to user.name, user %>
         <div class="pull-right" style="margin-top: 20px;">
-          <%= button_to "Delete", admin_user_path(user), method: :delete,
-            class: "btn btn-danger btn-delete",
-            data: {confirm: t("views.admin.users.index.confirm_delete")} %>
+          <% if !user.is_admin? %>
+            <%= button_to t(".delete"), admin_user_path(user), method: :delete,
+              class: "btn btn-danger btn-delete",
+              data: {confirm: t("views.admin.users.index.confirm_delete")} %>
+          <% end %>
         </div>
       </li>
       <br>

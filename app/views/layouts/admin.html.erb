@@ -20,7 +20,7 @@
             <li><%= link_to t("views.layouts.application.linkhome"), admin_root_path %></li>
             <li><%= link_to t("views.layouts.users"), admin_users_path %></li>
             <li><%= link_to t("views.layouts.categories"), admin_categories_path %></li>
-            <li><%= link_to t("views.layouts.word_list"), admin_words_path %></li>
+            <li><%= link_to t("views.layouts.words"), admin_words_path %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= current_user.name %> <b class="caret"></b>
@@ -41,6 +41,7 @@
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
     <div class="footer navbar-fixed-bottom">
       <%= t "views.static_pages.application.footer" %>

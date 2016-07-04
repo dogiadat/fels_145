@@ -1,6 +1,7 @@
-<ul>
+<h2><%= t ".activities" %></h2>
+<ul class="list-group">
   <% @activities.each do |activity| %>
-    <li>
+    <li class="list-group-item">
       <% if activity.followed? || activity.unfollowed? %>
         <%= link_to activity.show, user_path(activity.target_id) %>
       <% else %>
@@ -9,3 +10,4 @@
     </li>
   <% end %>
 </ul>
+<%= will_paginate @activities %>

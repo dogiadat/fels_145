@@ -17,8 +17,11 @@
         <%= link_to t("views.static_pages.home1"), root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to t("views.layouts.application.linkhome"), root_path %></li>
+            <li><%= link_to t("views.layouts.application.linkhome"), root_path %></li>
             <% if logged_in? %>
+              <% if current_user.is_admin? %>
+                <li><%= link_to t("views.layouts.manager"), admin_root_path %></li>
+              <% end %>
               <li><%= link_to t("views.layouts.users"), users_path %></li>
               <li><%= link_to t("views.layouts.categories"), categories_path %></li>
               <li><%= link_to t("views.layouts.word_list"), words_path %></li>

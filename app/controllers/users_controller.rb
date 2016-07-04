@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @activities = @user.activities.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page_activity
   end
 
   def new
@@ -19,8 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:success] = t "controllers.categories.create_success"
-      redirect_to new_user_url
+      redirect_to root_url
     else
       render :new
     end
